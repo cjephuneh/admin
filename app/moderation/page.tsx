@@ -1,6 +1,5 @@
 "use client"
-import React from "react"
-import { useState } from "react"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -31,17 +30,17 @@ export default function AIModeration() {
   )
 
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold">AI-Powered Listing Moderation</h1>
+    <div className="p-6 space-y-6 bg-white rounded-lg shadow-lg w-full">
+      <h1 className="text-3xl font-bold text-charcoal">AI-Powered Listing Moderation</h1>
       <div className="flex justify-between">
         <Input
           placeholder="Search listings..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-[300px]"
+          className="w-full max-w-xs border-charcoal"
         />
       </div>
-      <Table>
+      <Table className="w-full">
         <TableHeader>
           <TableRow>
             <TableHead>Title</TableHead>
@@ -63,12 +62,11 @@ export default function AIModeration() {
                 </div>
               </TableCell>
               <TableCell>
-              <Badge variant={listing.status === "Approved" ? "default" : 
-               listing.status === "Flagged" ? "destructive" : 
-               "secondary"}>
-  {listing.status}
-</Badge>
-
+                <Badge variant={listing.status === "Approved" ? "secondary" : 
+                               listing.status === "Flagged" ? "destructive" : 
+                               "outline"}>
+                  {listing.status}
+                </Badge>
               </TableCell>
               <TableCell>
                 <Button variant="ghost">Review</Button>
