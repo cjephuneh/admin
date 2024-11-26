@@ -58,6 +58,7 @@ className="flex justify-between">
             <TableHead>Adjust Demand</TableHead>
           </TableRow>
         </TableHeader>
+        
         <TableBody>
           {filteredProducts.map((product) => (
             <TableRow key={product.id}>
